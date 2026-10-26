@@ -29,10 +29,10 @@ jobs:
             exit 1
           fi
 
-          echo "==> Checking for raw/binary data formats outside whitelist..."
-          BLOCKED_FILES=$(find . -type f -not -path './.git/*' -not -path './data/sample/*' \( -name "*.csv" -o -name "*.parquet" -o -name "*.npz" -o -name "*.tar.gz" -o -name "*.zip" \))
+          echo "==> Checking for raw data dumps or sensitive files outside whitelist..."
+          BLOCKED_FILES=$(find . -type f -not -path './.git/*' -not -path './data/sample/*' \( -name "*.csv" -o -name "*.parquet" -o -name "*.npz" -o -name "*.tar.gz" -o -name "*.zip" -o -name ".env" -o -name "*.key" -o -name "*.pem" \))
           if [ -n "$BLOCKED_FILES" ]; then
-            echo "::error::Blocked data artifacts detected outside data/sample/:"
+            echo "::error::Blocked data artifacts or exposed secrets detected outside data/sample/:"
             echo "$BLOCKED_FILES"
             exit 1
           fi
