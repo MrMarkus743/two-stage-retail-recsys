@@ -1,4 +1,4 @@
-# Two-Stage Retail Recomendation System (`two-stage-retail-recsys`)
+# Two-Stage Retail Recommendation System (`two-stage-retail-recsys`)
 
 Description...
 
