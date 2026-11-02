@@ -64,4 +64,5 @@ data/processed/
 !data/.gitkeep
 !data/sample/
 !data/sample/**
+!data/sample/*.parquet
 !data/sample/.gitkeep
