@@ -13,9 +13,7 @@ import numpy as np
 import polars as pl
 import scipy.sparse as sp
 
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s"
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
 
@@ -60,9 +58,7 @@ def build_cooccurrence_matrix(
     n_items = len(item_to_idx)
 
     # 1. Формируем непрерывные 0-based индексы для заказов через Polars
-    orders_df = (
-        df.select("order_id").unique().with_row_index("order_idx")
-    )
+    orders_df = df.select("order_id").unique().with_row_index("order_idx")
     n_orders = len(orders_df)
 
     # 2. Быстрый маппинг индексов через join
